@@ -1,17 +1,38 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TaskContext } from "../context/TaskContext";
+import TaskEdit from "./TaskEdit";
 
 function TaskCard({ task }) {
   const { deleteTask } = useContext(TaskContext);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
   return (
-    <div className="bg-gray-800 text-white p-3 rounded-md items-center sm:grid sm:grid-cols-3 sm:gap-3">
-      <h1 className="text-xl font-bold capitalize">{task.title}</h1>
-      <p className="text-gray-500 text-sm m-3">{task.description}</p>
-      <div className="flex items-center justify-end">
-      <p className="text-yellow-50 text-lg mr-3">date: 12-11-22 3:00pm</p>
-      <button className="bg-gradient-to-r from-red-500 to-red-800 text-white hover:scale-105 drop-shadow-md  shadow-cla-blue rounded-md px-4 py-2 my-4 lg:h-[40px] lg:w-[115px] first-letter:transition duration-500 ease select-none hover:bg-rojo4 focus:outline-none focus:shadow-outline" onClick={() => deleteTask(task.id)}>Delete</button>
+    <>
+      <div className="bg-gray-800 text-white p-3 rounded-md items-center sm:grid sm:grid-cols-3 sm:gap-3">
+        <h1 className="text-xl font-bold capitalize">{task.title}</h1>
+        <p className="text-gray-500 text-sm m-3">{task.description}</p>
+        <div className="sm:flex items-center justify-end">
+          <p className="text-yellow-50 text-lg mr-3">date: 12-11-22 3:00pm</p>
+          <button
+            className="bg-gradient-to-r from-red-500 to-red-800 text-white hover:scale-105 drop-shadow-md  shadow-cla-blue rounded-md px-4 py-2 mr-3 lg:h-[40px] lg:w-[115px] first-letter:transition duration-500 ease select-none focus:outline-none focus:shadow-outline"
+            onClick={() => deleteTask(task.id)}
+          >
+            Delete
+          </button>
+          <button
+            className="bg-gradient-to-r from-green-500 to-green-800 text-white hover:scale-105 drop-shadow-md  shadow-cla-blue rounded-md px-4 py-2 first-letter:transition duration-500 ease select-none focus:outline-none focus:shadow-outline"
+            onClick={handleOpen}
+          >
+            Edit
+          </button>
+        </div>
       </div>
-    </div>
+      {open ? <TaskEdit {...{task}}/> : <div></div>}
+    </>
   );
 }
 

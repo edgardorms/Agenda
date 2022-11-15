@@ -31,7 +31,7 @@ export default function TaskForm() {
           value={description}
           className="bg-slate-100 p-3 w-full mb-2"
         ></textarea>
-        <button className="bg-gradient-to-r  from-sky-500 to-sky-700 text-white hover:scale-105 drop-shadow-md  shadow-cla-blue rounded-md px-4 py-2  first-letter:transition duration-500 ease select-none hover:bg-rojo4 focus:outline-none focus:shadow-outline">Save</button>
+        <button className="bg-gradient-to-r from-sky-500 to-sky-700 text-white hover:scale-105 drop-shadow-md  shadow-cla-blue rounded-md px-4 py-2  first-letter:transition duration-500 ease select-none focus:outline-none focus:shadow-outline">Save</button>
       </form>
     </div>
   );

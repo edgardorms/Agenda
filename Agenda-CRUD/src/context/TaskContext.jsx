@@ -6,8 +6,6 @@ export const TaskContext = createContext();
 export function TaskContextProvider(props) {
   const [tasks, setTasks] = useState([]);
 
-
-  
   useEffect(() => {
     //setTasks(data);
 
@@ -15,14 +13,11 @@ export function TaskContextProvider(props) {
     if (data) {
       setTasks(JSON.parse(data));
     }
-    ; }, []);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("tarea", JSON.stringify(tasks));
   }, [tasks]);
-
-  
-  
 
   function createTask(task) {
     setTasks([
@@ -34,12 +29,23 @@ export function TaskContextProvider(props) {
       },
     ]);
   }
+
   function deleteTask(taskId) {
     setTasks(tasks.filter((task) => task.id !== taskId));
   }
+
+  function updateTask(id, newInfo) {
+    setTasks(tasks.map((task) => (task.id === id ? newInfo : task)));
+  }
+
   return (
     <TaskContext.Provider
-      value={{ tasks: tasks, deleteTask: deleteTask, createTask: createTask }}
+      value={{
+        tasks: tasks,
+        deleteTask: deleteTask,
+        createTask: createTask,
+        updateTask: updateTask,
+      }}
     >
       {props.children}
     </TaskContext.Provider>
