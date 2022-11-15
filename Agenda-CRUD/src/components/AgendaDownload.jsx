@@ -6,7 +6,7 @@ import { TaskContext } from "../context/TaskContext";
 function AgendaDownload() {
     
     const { tasks } = useContext(TaskContext);
-    let data= localStorage.getItem("tarea");
+    let data= JSON.stringify(tasks)
 
     const download = (jsonString, fileName = 'test.json') => {
         // Creamos el elemento para hacer el trigger del download
