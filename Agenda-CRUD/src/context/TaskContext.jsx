@@ -45,6 +45,7 @@ export function TaskContextProvider(props) {
         deleteTask: deleteTask,
         createTask: createTask,
         updateTask: updateTask,
+        setTasks: setTasks
       }}
     >
       {props.children}
