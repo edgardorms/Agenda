@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { TaskContext } from "../context/TaskContext";
-import { Modal } from "react-responsive-modal";
+
 
 export default function TaskForm() {
   const [title, setTitle] = useState("");
