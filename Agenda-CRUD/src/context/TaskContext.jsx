@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from "react";
-//import { tasks as data } from "../data/tasks";
 
 export const TaskContext = createContext();
 
@@ -7,8 +6,7 @@ export function TaskContextProvider(props) {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    //setTasks(data);
-
+   
     let data = localStorage.getItem("tarea");
     if (data) {
       setTasks(JSON.parse(data));
@@ -45,7 +43,7 @@ export function TaskContextProvider(props) {
         deleteTask: deleteTask,
         createTask: createTask,
         updateTask: updateTask,
-        setTasks: setTasks
+        setTasks: setTasks,
       }}
     >
       {props.children}
