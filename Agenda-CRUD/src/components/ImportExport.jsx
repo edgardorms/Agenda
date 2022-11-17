@@ -38,30 +38,6 @@ function ImportExport() {
     fetchData();
   }, [carga, file]);
 
-  function UploadButton() {
-    if (carga) {
-      return (
-        <label
-          htmlFor="load"
-          className="bg-gradient-to-r  from-orange-300 to-orange-500 text-white hover:scale-105 drop-shadow-md  shadow-cla-blue rounded-md px-4 py-2 mx-3 first-lettertransition duration-500 ease select-none focus:outline-none focus:shadow-outline:"
-        >
-          {" "}
-          cargalo{" "}
-        </label>
-      );
-    } else {
-      return (
-        <label
-          htmlFor="load"
-          className="bg-gradient-to-r  from-orange-300 to-orange-500 text-white hover:scale-105 drop-shadow-md  shadow-cla-blue rounded-md px-4 py-2 mx-3 first-lettertransition duration-500 ease select-none focus:outline-none focus:shadow-outline:"
-        >
-          {" "}
-          cargó{" "}
-        </label>
-      );
-    }
-  }
-
   const download = (jsonString, fileName = "test.json") => {
     const element = document.createElement("a");
     element.setAttribute(
@@ -85,7 +61,7 @@ function ImportExport() {
           htmlFor="load"
           className="sm:hidden bg-gradient-to-r  from-sky-700 to-sky-900 text-white hover:scale-105 drop-shadow-md  shadow-cla-blue rounded-md px-4 py-1 mx-1 first-lettertransition duration-500 ease select-none focus:outline-none focus:shadow-outline:"
         >
-          Load
+          Import
         </label>
         <input
           {...register("data")}
@@ -94,12 +70,13 @@ function ImportExport() {
           accept=".json"
           id="load"
           className="ml-5 my-2 hidden sm:block"
+          required
         />
         <button
           className="bg-gradient-to-r  from-sky-700 to-sky-900 text-white hover:scale-105 drop-shadow-md  shadow-cla-blue rounded-md px-4 py-1 mx-1 first-lettertransition duration-500 ease select-none focus:outline-none focus:shadow-outline:"
           onClick={() => load()}
         >
-          Import
+          Submit
         </button>
       </form>
       <button

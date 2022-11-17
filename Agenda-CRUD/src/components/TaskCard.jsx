@@ -16,7 +16,6 @@ function TaskCard({ task }) {
         <h1 className="text-xl font-bold capitalize">{task.title}</h1>
         <p className="text-gray-500 text-sm m-3">{task.description}</p>
         <div className="sm:flex items-center justify-end">
-          
           <button
             className="bg-gradient-to-r from-red-500 to-red-800 text-white hover:scale-105 drop-shadow-md  shadow-cla-blue rounded-md px-4 py-2 mr-3 lg:h-[40px] lg:w-[115px] first-letter:transition duration-500 ease select-none focus:outline-none focus:shadow-outline"
             onClick={() => deleteTask(task.id)}
@@ -31,7 +30,7 @@ function TaskCard({ task }) {
           </button>
         </div>
       </div>
-      {open ? <TaskEdit {...{task}}/> : <div></div>}
+      {open ? <TaskEdit {...{ task }} /> : <div></div>}
     </>
   );
 }

@@ -6,7 +6,6 @@ export function TaskContextProvider(props) {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-   
     let data = localStorage.getItem("tarea");
     if (data) {
       setTasks(JSON.parse(data));
@@ -39,11 +38,11 @@ export function TaskContextProvider(props) {
   return (
     <TaskContext.Provider
       value={{
-        tasks: tasks,
-        deleteTask: deleteTask,
-        createTask: createTask,
-        updateTask: updateTask,
-        setTasks: setTasks,
+        tasks,
+        deleteTask,
+        createTask,
+        updateTask,
+        setTasks,
       }}
     >
       {props.children}
