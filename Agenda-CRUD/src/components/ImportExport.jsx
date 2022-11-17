@@ -9,7 +9,6 @@ function ImportExport() {
   const [file, setFile] = useState();
   const [carga, setCarga] = useState(true);
   let datos = JSON.stringify(tasks);
-  const [uploadbtn, setuploadbtn] = useState(false);
 
   function load() {
     if (carga) {
